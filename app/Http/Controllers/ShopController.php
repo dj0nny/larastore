@@ -34,7 +34,8 @@ class ShopController extends Controller
         ]);
     }
 
-    public function update(Request $request, Product $product) {
+    public function update(Request $request, Product $product)
+    {
         $validatedProduct = $request->validate([
             'name' => ['required'],
             'description' => ['required'],
@@ -44,6 +45,32 @@ class ShopController extends Controller
 
 
         $product->update($validatedProduct);
+
+        return redirect('/');
+    }
+
+    public function create()
+    {
+        return view('shop.create', [
+            'categories' => Category::all(),
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $validatedNewProduct = $request->validate([
+            'name' => ['required'],
+            'code' => ['required', 'unique:products', 'min:5', 'max:5'],
+            'description' => ['required'],
+            'price' => ['required'],
+            'category_id' => ['required']
+        ]);
+
+        // dd($validateNewProduct);
+
+        // $validateNewProduct->create();
+
+        Product::create($validatedNewProduct);
 
         return redirect('/');
     }

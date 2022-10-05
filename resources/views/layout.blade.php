@@ -25,7 +25,7 @@
                 <a class="btn btn-link p-0 px-3" href="{{ route('home') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="btn btn-link p-0 px-3" href="{{ route('home') }}">Create product</a>
+                <a class="btn btn-link p-0 px-3" href="{{ route('createProduct') }}">Create product</a>
               </li>
               <li class="nav-item">
                 <a class="btn btn-link p-0 px-3" href="{{ route('categoriesList') }}">Categories</a>
