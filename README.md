@@ -21,27 +21,27 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 Clone the repository:
 
 ```bash
-  git clone https://github.com/dj0nny/larastore.git
+git clone https://github.com/dj0nny/larastore.git
 ```
 
 Check if PHP and [Composer](https://getcomposer.org/) is installed:
 
 ```bash
-  php -v
-  composer -v
+php -v
+composer -v
 ```
 
 Install the dependencies:
 
 ```bash
-  composer install
+composer install
 ```
 
 Rename the `.env.example` to `.env` and replace with your database configuration.
 Then run:
 
 ```bash
-  php artisan serve
+php artisan serve
 ```
 
 ## Migration and seeding
@@ -49,19 +49,19 @@ Then run:
 For running the migrations:
 
 ```bash
-  php artisan migrate
+php artisan migrate
 ```
 
 You can also migrate and seed the database with dummy data using:
 
 ```bash
-  php artisan migrate --seed
+php artisan migrate --seed
 ```
 
 For dropping all the tables and run the migrations and the seeder:
 
 ```bash
-  php artisan migrate:refresh --seed
+php artisan migrate:refresh --seed
 ```
 
 ## Authors
