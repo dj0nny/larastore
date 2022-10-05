@@ -13,12 +13,23 @@
     <div class="container">
       <div class="row d-flex align-items-center">
         <div class="col-md-4 text-center">
-          <h3>Larashop</h3>
+          <a href="{{ route('home') }}">
+            <h3>Larashop</h3>
+          </a>
         </div>
         <div class="col-md-8">
           <ul class="nav justify-content-center">
             @auth
               <li class="nav-item">Hi, {{ auth()->user()->name }}</li>
+              <li class="nav-item">
+                <a class="btn btn-link p-0 px-3" href="{{ route('home') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-link p-0 px-3" href="{{ route('home') }}">Create product</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-link p-0 px-3" href="{{ route('categoriesList') }}">Categories</a>
+              </li>
               <li class="nav-item">
                 <form action="/auth/logout" method="POST">
                   @csrf

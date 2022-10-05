@@ -21,6 +21,7 @@ class ProductFactory extends Factory
             'code' => fake()->regexify('[A-Z]{3}[0-9]{2}'),
             'description' => fake()->text(),
             'price' => fake()->randomFloat(2, 10, 150),
+            'category_id' => fake()->randomDigitNotNull(),
         ];
     }
 }

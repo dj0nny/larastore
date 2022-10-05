@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -15,11 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ShopController::class, 'index']);
-Route::delete('/products/{product}/delete', [ShopController::class, 'destroy'])->middleware('auth');
+Route::get('/', [ShopController::class, 'index'])->name('home');
+Route::delete('/products/{product}/delete', [ShopController::class, 'destroy'])->middleware('auth')->name('delete');
+Route::get('/products/{product}/edit', [ShopController::class, 'edit'])->middleware('auth')->name('edit');
+Route::put('/products/{product}/update', [ShopController::class, 'update'])->middleware('auth')->name('update');
+
+Route::get('/categories', [CategoryController::class, 'index'])->middleware('auth')->name('categoriesList');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->middleware('auth')->name('showCategoryProducts');
 
 Route::get('/register', [UserController::class, 'create']);
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/auth/register', [UserController::class, 'store']);
 Route::post('/auth/login', [UserController::class, 'authenticate']);
 Route::post('/auth/logout', [UserController::class, 'logout']);
